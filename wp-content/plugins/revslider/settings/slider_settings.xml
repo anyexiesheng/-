@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fields>
+	<fieldset name="general" label="常规设置" icon="eg-icon-cog-alt">
+		<field name="delay" type="text" default="9000" label="延迟" description="一张幻灯片停在屏幕上的时间单位毫秒" />
+		<field name="shuffle" type="radio" default="off" label="Shuffle Mode" description="Turn Shuffle Mode on and off! Will be randomized only once at the start.">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="lazy_load" type="radio" default="off" label="延迟加载" description="The lazy load means that the images will be loaded by demand, it speeds the loading of the slider.">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="use_wpml" type="radio" default="off" label="使用多语言(WPML)" description="使用多语言插件 - 显示多语言控制. 仅在使用wpml插件时有效">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="enable_static_layers" type="radio" default="off" label="启用静态图层" description="这将启用静态图层, 这个选项让幻灯片停止在图层上或用于一张幻灯片">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="next_slide_on_window_focus" type="radio" default="off" label="下一张幻灯片焦点" description="如果用户在选项卡间切换启用这个如果幻灯片幻灯片焦点移动到下一张幻灯片">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="start_js_after_delay" type="text" label="初始延迟" default="0" unit="ms" datatype="number" description="幻灯片初始化前延迟" />
+	</fieldset>
+	<fieldset name="stopslider" label="循环和进度" icon="eg-icon-chart-bar">
+		<field name="stop_slider" type="radio" default="off" label="停止幻灯片" description="循环/切换一定数量幻灯片后停止/关闭">
+			<option value="on" text="停止" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="stop_after_loops" type="text" default="0" label="循环后停止" datatype="number" description="Stop the slider after certain amount of loops. 0 related to the first loop." />
+		<field name="stop_at_slide" type="text" default="2" label="指定幻灯片停止" datatype="number" description="Stop the slider at the given slide" />
+		<field type="control" ctype="enable" parent="stop_slider" child="stop_after_loops" value="on" />
+		<field type="control" ctype="enable" parent="stop_slider" child="stop_at_slide" value="on" />
+		<field name="show_timerbar" type="list" default="top" label="显示进度条" description="显示运行进度">
+			<option value="top" text="顶部" />
+			<option value="bottom" text="底部" />
+			<option value="hide" text="隐藏" />
+		</field>
+		<field name="loop_slide" type="radio" default="loop" label="循环单张幻灯片" description="如果仅有一张幻灯片可以选择播放或停止.">
+			<option value="loop" text="启用" />
+			<option value="noloop" text="关闭" />
+		</field>
+	</fieldset>
+	<fieldset name="position" label="位置" icon="eg-icon-resize-full-alt">
+		<field name="position" type="list" default="center" label="页面上的位置" description="在页面上幻灯片位置, (float:left, float:right, margin:0px auto;)">
+			<option value="left" text="左" />
+			<option value="center" text="中" />
+			<option value="right" text="右" />
+		</field>
+		<field name="margin_top" type="text" label="顶边距" default="0" unit="px" datatype="number" description="包裹图层顶部外边距" />
+		<field name="margin_bottom" type="text" label="底边距" default="0" unit="px" datatype="number" description="包裹图层低部外边距" />
+		<field name="margin_left" type="text" label="左边距" default="0" unit="px" datatype="number" description="包裹图层左边外边距" />
+		<field name="margin_right" type="text" label="右边距" default="0" unit="px" datatype="number" description="包裹图层右边外边距" />
+		<field type="control" ctype="disable" parent="position" child="margin_left" value="center" />
+		<field type="control" ctype="disable" parent="position" child="margin_right" value="center" />
+	</fieldset>
+	<fieldset name="appearance" label="外观" icon="eg-icon-droplet">
+		<field name="shadow_type" type="list" default="2" label="阴影类型" description="滑块下显示阴影. 阴影仅适合固定和自适性布局, 全宽没有.">
+			<option value="0" text="无阴影" />
+			<option value="1" text="1" />
+			<option value="2" text="2" />
+			<option value="3" text="3" />
+		</field>
+		<field name="padding" type="text" default="0" label="内边距 (边框)" datatype="number" description="如果设置后滑块生成一个边框及背景." />
+		<field name="backround_image_options" type="statictext" label="&lt;div class='setting_info_small'&gt;背景图像选项(最好使用透明幻灯片)&lt;/div&gt;" />
+		<field type="hr" />
+		<field name="background_color" type="color" default="#E9E9E9" label="背景颜色" description="滑块包裹背景色,如果透明留空." />
+		<field name="background_dotted_overlay" type="list" default="none" label="点叠加大小" description="在整个幻灯片上显示点叠加, 选择点的宽度">
+			<option value="none" text="无" />
+			<option value="twoxtwo" text="2 x 2 黑色" />
+			<option value="twoxtwowhite" text="2 x 2 白色" />
+			<option value="threexthree" text="3 x 3 黑色" />
+			<option value="threexthreewhite" text="3 x 3 白色" />
+		</field>
+		<field name="show_background_image" type="radio" default="false" label="显示背景图像" description="是/否显示包裹背景图像.">
+			<option value="true" text="是" />
+			<option value="false" text="否" />
+		</field>
+		<field name="background_image" type="text" default="" label="背景图像链接地址" class="text-sidebar-long" description="背景图像在幻灯片包裹上. 幻灯片预载时显示." />
+		<field name="bg_fit" type="list" default="cover" label="背景拟合" description="背景如何拟合进幻灯片">
+			<option value="cover" text="覆盖" />
+			<option value="contain" text="包含" />
+			<option value="normal" text="普通" />
+		</field>
+		<field name="bg_repeat" type="list" default="no-repeat" label="背景重复" description="背景如何在幻灯片中重复">
+			<option value="no-repeat" text="不重复" />
+			<option value="repeat" text="重复" />
+			<option value="repeat-x" text="水平重复" />
+			<option value="repeat-y" text="垂直重复" />
+		</field>
+		<field name="bg_position" type="list" default="center top" label="背景位置" description="背景放在幻灯片中的位置">
+			<option value="center top" text="中心 顶部" />
+			<option value="center right" text="中心 右边" />
+			<option value="center bottom" text="中心 底部" />
+			<option value="center center" text="中心 中心" />
+			<option value="left top" text="左边 顶部" />
+			<option value="left center" text="左边 中心" />
+			<option value="left bottom" text="左边 底部" />
+			<option value="right top" text="右边 顶部" />
+			<option value="right center" text="右边 中心" />
+			<option value="right bottom" text="右边 底部" />
+		</field>
+		<field type="control" ctype="enable" parent="show_background_image" child="background_image" value="true" />
+		<field type="control" ctype="enable" parent="show_background_image" child="bg_fit" value="true" />
+		<field type="control" ctype="enable" parent="show_background_image" child="bg_repeat" value="true" />
+		<field type="control" ctype="enable" parent="show_background_image" child="bg_position" value="true" />
+	</fieldset>
+	<fieldset name="navigation" label="Navigation" icon="eg-icon-flickr">
+		<field name="stop_on_hover" type="radio" default="on" label="Stop On Hover" description="Stop the Timer when hovering the slider">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="keyboard_navigation" type="radio" default="off" label="键盘导航" description="允许/不允许通过键盘浏览幻灯片">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="navigation_style" type="list" default="round" label="导航风格" description="导航的风格  ** 如果选择导航栏,推荐选择导航箭头到子弹">
+			<option value="round" text="圆形" />
+			<option value="navbar" text="导航栏" />
+			<option value="preview1" text="预览1" />
+			<option value="preview2" text="预览2" />
+			<option value="preview3" text="预览3" />
+			<option value="preview4" text="预览4" />
+			<option value="custom" text="自定义" />
+			<option value="round-old" text="老式圆形" />
+			<option value="square-old" text="老式方形" />
+			<option value="navbar-old" text="老式导航栏" />
+		</field>
+		
+		<field name="navigaion_type" type="list" default="bullet" label="导航栏类型" description="显示导航栏类型 (默认:无">
+			<option value="none" text="None" />
+			<option value="bullet" text="Bullet" />
+			<option value="thumb" text="Thumb" />
+		</field>
+		<field name="navigation_arrows" type="list" default="solo" label="Navigation Arrows" description="Display position of the Navigation Arrows (** By navigation Type Thumb arrows always centered or none visible)">
+			<option value="nexttobullets" text="With Bullets" />
+			<option value="solo" text="Solo" />
+			<option value="none" text="None" />
+		</field>
+		<field name="navigaion_always_on" type="list" default="false" label="Always Show Navigation" description="Always show the navigation and the thumbnails.">
+			<option value="true" text="Yes" />
+			<option value="false" text="No" />
+		</field>
+		<field name="hide_thumbs" type="text" label="多少时间后隐藏导航栏" default="200" unit="ms" datatype="number" description="Time after that the Navigation and the Thumbs will be hidden(Default: 200 ms)" />
+		<field type="control" ctype="enable" parent="navigaion_always_on" child="hide_thumbs" value="false" />
+		<field type="bulk_control_start" parent="navigaion_type" ctype="hide" value="none" />
+		<field name="bullets_and_thumbnail_positions" type="statictext" label="&lt;div class='setting_info_small'&gt;导航位置&lt;/div&gt;" />
+		<field type="hr" />
+		<field name="navigaion_align_hor" type="list" default="center" label="Navigation Horizontal Align" description="Horizontal Align of Bullets / Thumbnails">
+			<option value="left" text="Left" />
+			<option value="center" text="Center" />
+			<option value="right" text="Right" />
+		</field>
+		<field name="navigaion_align_vert" type="list" default="bottom" label="Navigation Vertical Align" description="Vertical Align of Bullets / Thumbnails">
+			<option value="top" text="Top" />
+			<option value="center" text="Center" />
+			<option value="bottom" text="Bottom" />
+		</field>
+		<field name="navigaion_offset_hor" type="text" label="Navigation Horizontal Offset" default="0" unit="px" description="Offset from current Horizontal position of Bullets / Thumbnails negative and positive direction" />
+		<field name="navigaion_offset_vert" type="text" label="Navigation Vertical Offset" default="20" unit="px" datatype="number" description="Offset from current Vertical  position of Bullets / Thumbnails negative and positive direction" />
+		<field type="bulk_control_end" />
+		<field type="bulk_control_start" parent="navigation_arrows" ctype="hide" value="none" />
+		<field name="left_arrow_positions" type="statictext" label="&lt;div class='setting_info_small'&gt;左箭头位置&lt;/div&gt;" />
+		<field type="hr" />
+		<field name="leftarrow_align_hor" type="list" default="left" label="Left Arrow Horizontal Align" description="Horizontal Align of left Arrow (only if arrow is not next to bullets)">
+			<option value="left" text="Left" />
+			<option value="center" text="Center" />
+			<option value="right" text="Right" />
+		</field>
+		<field name="leftarrow_align_vert" type="list" default="center" label="Left Arrow Vertical Align" description="Vertical Align of left Arrow (only if arrow is not next to bullets)">
+			<option value="top" text="Top" />
+			<option value="center" text="Center" />
+			<option value="bottom" text="Bottom" />
+		</field>
+		<field name="leftarrow_offset_hor" type="text" label="Left Arrow Horizontal Offset" default="20" unit="px" datatype="number" description="Offset from current Horizontal position of of left Arrow  negative and positive direction" />
+		<field name="leftarrow_offset_vert" type="text" label="Left Arrow Vertical Offset" default="0" unit="px" datatype="number" description="Offset from current Vertical position of of left Arrow negative and positive direction" />
+		<field name="right_arrow_positions" type="statictext" label="&lt;div class='setting_info_small'&gt;右箭头位置&lt;/div&gt;" />
+		<field type="hr" />
+		<field name="rightarrow_align_hor" type="list" default="right" label="Right Arrow Horizontal Align" description="Horizontal Align of right Arrow (only if arrow is not next to bullets)">
+			<option value="left" text="Left" />
+			<option value="center" text="Center" />
+			<option value="right" text="Right" />
+		</field>
+		<field name="rightarrow_align_vert" type="list" default="center" label="Right Arrow Vertical Align" description="Vertical Align of right Arrow (only if arrow is not next to bullets)">
+			<option value="top" text="Top" />
+			<option value="center" text="Center" />
+			<option value="bottom" text="Bottom" />
+		</field>
+		<field name="rightarrow_offset_hor" type="text" label="Right Arrow Horizontal Offset" default="20" datatype="number" unit="px" description="Offset from current Horizontal position of of right Arrow negative and positive direction" />
+		<field name="rightarrow_offset_vert" type="text" label="Right Arrow Vertical Offset" default="0" datatype="number" unit="px" description="Offset from current Vertical position of of right Arrow negative and positive direction" />
+		<field type="bulk_control_end" />
+	</fieldset>
+	<fieldset name="thumbs" label="Thumbnails" icon="eg-icon-th-large">
+		<field name="thumb_width" type="text" label="Thumb Width" default="100" unit="px" datatype="number" description="The basic Width of one Thumbnail (only if thumb is selected)" />
+		<field name="thumb_height" type="text" label="Thumb Height" default="50" unit="px" datatype="number" description="the basic Height of one Thumbnail (only if thumb is selected)" />
+		<field name="thumb_amount" type="text" label="Thumb Amount" default="5" unit="px" datatype="number" description="the amount of the Thumbs visible same time (only if thumb is selected)" />
+	</fieldset>
+	<fieldset name="spinner" label="加载图标" icon="eg-icon-back-in-time">
+		<field name="use_spinner" type="list" default="0" label="选择加载图标" description="选择幻灯片加载图标">
+			<option value="-1" text="关闭" />
+			<option value="0" text="0" />
+			<option value="1" text="1" />
+			<option value="2" text="2" />
+			<option value="3" text="3" />
+			<option value="4" text="4" />
+			<option value="5" text="5" />
+		</field>
+		<field name="spinner_color" type="color" default="#FFFFFF" label="加载图标颜色" description="图标显示的颜色" />
+	</fieldset>
+	<fieldset name="parallax" label="色差" icon="eg-icon-camera-alt">
+		<field name="use_parallax" type="radio" default="off" label="启用色差" description="启用这个, 将用于创建独特的色差效果">
+				<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="disable_parallax_mobile" type="list" default="off" label="移动上关闭" description="如果设置为启用，在移动上关闭提升绩效">
+				<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="parallax_type" type="list" default="mouse" label="类型" description="定义色差响应的类型">
+			<option value="mouse" text="鼠标位置" />
+			<option value="scroll" text="滚动位置" />
+			<option value="mouse+scroll" text="鼠标和滚动" />
+		</field>
+		<field name="parallax_bg_freeze" type="list" default="off" label="背景锁定" description="这个设置会锁定背景，这样背景不会被色差影响">
+				<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="parallax_level_1" type="text" label="级深1" default="5" description="定义在幻灯片编辑器中编辑此幻灯片的级别" />
+		<field name="parallax_level_2" type="text" label="级深2" default="10" description="定义在幻灯片编辑器中编辑此幻灯片的级别" />
+		<field name="parallax_level_3" type="text" label="级深3" default="15" description="定义在幻灯片编辑器中编辑此幻灯片的级别" />
+		<field name="parallax_level_4" type="text" label="级深4" default="20" description="定义在幻灯片编辑器中编辑此幻灯片的级别" />
+		<field name="parallax_level_5" type="text" label="级深5" default="25" description="定义在幻灯片编辑器中编辑此幻灯片的级别" />
+		<field name="parallax_level_6" type="text" label="级深6" default="30" description="定义在幻灯片编辑器中编辑此幻灯片的级别" />
+		<field name="parallax_level_7" type="text" label="级深7" default="35" description="定义在幻灯片编辑器中编辑此幻灯片的级别" />
+		<field name="parallax_level_8" type="text" label="级深8" default="40" description="定义在幻灯片编辑器中编辑此幻灯片的级别" />
+		<field name="parallax_level_9" type="text" label="级深9" default="45" description="定义在幻灯片编辑器中编辑此幻灯片的级别" />
+		<field name="parallax_level_10" type="text" label="级深10" default="50" description="定义在幻灯片编辑器中编辑此幻灯片的级别" />
+		<field type="control" ctype="enable" parent="use_parallax" child="parallax_type" value="on" />
+		<field type="control" ctype="enable" parent="use_parallax" child="parallax_bg_freeze" value="on" />
+		<field type="control" ctype="enable" parent="use_parallax" child="parallax_level_1" value="on" />
+		<field type="control" ctype="enable" parent="use_parallax" child="parallax_level_2" value="on" />
+		<field type="control" ctype="enable" parent="use_parallax" child="parallax_level_3" value="on" />
+		<field type="control" ctype="enable" parent="use_parallax" child="parallax_level_4" value="on" />
+		<field type="control" ctype="enable" parent="use_parallax" child="parallax_level_5" value="on" />
+		<field type="control" ctype="enable" parent="use_parallax" child="parallax_level_6" value="on" />
+		<field type="control" ctype="enable" parent="use_parallax" child="parallax_level_7" value="on" />
+		<field type="control" ctype="enable" parent="use_parallax" child="parallax_level_8" value="on" />
+		<field type="control" ctype="enable" parent="use_parallax" child="parallax_level_9" value="on" />
+		<field type="control" ctype="enable" parent="use_parallax" child="parallax_level_10" value="on" />
+		<field type="control" ctype="enable" parent="use_parallax" child="disable_parallax_mobile" value="on" />
+	</fieldset>
+	<fieldset name="mobile_touch" label="移动触摸" icon="eg-icon-up-hand">
+		<field name="touchenabled" type="radio" default="on" label="Touch Enabled" description="Enable Swipe Function on touch devices">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="swipe_velocity" type="text" label="滑动范围(0 - 200)" default="75" datatype="number" description="定义滑动敏感度，值越小敏感度越大" />
+		<field name="swipe_min_touches" type="text" label="最小触摸滑动" default="1" datatype="number" description="定义同时允许的最小手指" />
+		<field name="drag_block_vertical" type="radio" default="false" label="最大触摸滑动" description="定义同时允许的最大手指">
+			<option value="true" text="启用" />
+			<option value="false" text="关闭" />
+		</field>
+	</fieldset>
+	<fieldset name="mobile_visibility" label="Mobile Visibility" icon="eg-icon-mobile">
+		<field name="disable_on_mobile" type="radio" default="off" label="在移动设备上关闭幻灯片" description="如果启用, 幻灯片不会在移动设备上装载.">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="disable_kenburns_on_mobile" type="radio" default="off" label="在移动上关闭KenBurn" description="这将在移动上关闭KenBurns提升绩效">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="hide_slider_under" type="text" label="Hide Slider Under Width" default="0" unit="px" datatype="number" description="Hide the slider under some slider width. Works only in Responsive Style. Not available for Fullwidth." />
+		<field name="hide_defined_layers_under" type="text" label="Hide Defined Layers Under Width" default="0" unit="px" datatype="number" description="Hide some defined layers in the layer properties under some slider width." />
+		<field name="hide_all_layers_under" type="text" label="Hide All Layers Under Width" default="0" unit="px" datatype="number" description="Hide all layers under some slider width" />
+		<field type="hr" />
+		<field name="hide_arrows_on_mobile" type="radio" default="off" label="隐藏箭头" description="在移动设备上显示/隐藏箭头">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="hide_bullets_on_mobile" type="radio" default="off" label="隐藏导航栏" description="在移动设备上显示/隐藏导航栏">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="hide_thumbs_on_mobile" type="radio" default="off" label="隐藏缩略图" description="在移动设备上显示/隐藏缩略图">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="hide_thumbs_under_resolution" type="text" label="在多宽下隐藏缩略图" default="0" unit="px" datatype="number" description="在移动设备一定的宽度下隐藏缩略图" />
+		<field name="hide_thumbs_delay_mobile" type="text" label="多长时间后隐藏导航" default="1500" unit="ms" datatype="number" description="在设置的时间后在移动设备上隐藏导航和缩略图(默认: 1500 ms)" />
+	</fieldset>
+	<fieldset name="first_slide" label="Alternative First Slide" icon="eg-icon-thumbs-up">
+		<field name="start_with_slide" type="text" default="1" label="Start With Slide" description="Change it if you want to start from a different slide then 1" />
+		<field type="hr" />
+		<field name="first_transition_active" type="radio" default="off" label="First Transition Active" description="If active, it will overwrite the first slide transition. Use it when you want a special transition for the first slide only.">
+			<option value="true" text="启用" />
+			<option value="false" text="关闭" />
+		</field>
+		<field type="bulk_control_start" parent="first_transition_active" ctype="enable" value="true" />
+		<field name="first_transition_type" type="list" default="fade" label="First Transition Type" description="First slide transition type">
+			<option value="replace" text="Replace me!" />
+			<option value="replace2" text="Replace me!" />
+		</field>
+		<field name="first_transition_duration" type="text" default="300" datatype="number" label="First Transition Duration" description="First slide transition duration (Default:300, min: 100 max 2000)" unit="ms" />
+		<field name="first_transition_slot_amount" type="text" default="7" datatype="number" label="First Transition Slot Amount" description="The number of slots or boxes the slide is divided into. If you use boxfade, over 7 slots can be juggy" unit="ms" />
+		<field type="bulk_control_end" />
+	</fieldset>
+	<fieldset name="fallbacks" label="回调" icon="eg-icon-ccw-1">
+		<field name="simplify_ie8_ios4" type="radio" default="off" label="在IOS4/IE8上简化" description="在IOS4和IE8上简化幻灯片">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="show_alternative_type" type="list" default="off" label="使用替代" description="Disables the Slider on the setting you make and shows an alternative image instead">
+			<option value="off" text="关闭" />
+			<option value="mobile" text="在移动上" />
+			<option value="ie8" text="在IE8上" />
+			<option value="mobile-ie8" text="在移动和IE8上" />
+		</field>
+		<field type="bulk_control_start" parent="show_alternative_type" ctype="disable" value="关闭" />
+			<field name="show_alternate_image" type="text" default="" label="替代图像" class="text-sidebar-long" description="The image that will used as the alternative to the Slider" />
+		<field type="bulk_control_end" />
+	</fieldset>
+	<fieldset name="reset_slide_settings" label="全局重写" icon="eg-icon-reply">
+		<field name="reset_transitions" type="list" default=" " label="重置转场" description="重置所有幻灯片的转场效果(如果留空,不会修改)">
+			<option value=" " text="选择操作" />
+			<option value="random-static" text="扁平随机" />
+			<option value="random-premium" text="保护随机" />
+			<option value="random" text="扁平和保护随机" />
+			<option value="slideup" text="顶部切入" />
+			<option value="slidedown" text="底部欺辱" />
+			<option value="slideright" text="右边切入" />
+			<option value="slideleft" text="左边切入" />
+			<option value="slidehorizontal" text="水平切入(根据上一张/下一张)" />
+			<option value="slidevertical" text="垂直切入(根据上一张/下一张)" />
+			<option value="boxslide" text="切入盒" />
+			<option value="slotslide-horizontal" text="水平切入槽" />
+			<option value="slotslide-vertical" text="垂直切入槽" />
+			<option value="notransition" text="无转场" />
+			<option value="fade" text="淡变" />
+			<option value="boxfade" text="淡变盒" />
+			<option value="slotfade-horizontal" text="水平淡变槽" />
+			<option value="slotfade-vertical" text="垂直淡变槽" />			
+			<option value="fadefromright" text="从右边淡变和切入" />
+			<option value="fadefromleft" text="从左边淡变和切入" />
+			<option value="fadefromtop" text="从顶部淡变和切入" />
+			<option value="fadefrombottom" text="从底部淡变和切入" />
+			<option value="fadetoleftfadefromright" text="淡变到左然后从右淡变" />
+			<option value="fadetorightfadefromleft" text="淡变到右然后从左淡变" />
+			<option value="fadetotopfadefrombottom" text="淡变到顶然后从底淡" />
+			<option value="fadetobottomfadefromtop" text="淡变到底然后从顶淡变" />
+		        <option value="parallaxtoright" text="色差到右边" />
+			<option value="parallaxtoleft" text="色差到左边" />
+			<option value="parallaxtotop" text="色差到顶部" />
+			<option value="parallaxtobottom" text="色差到底部" />
+			<option value="scaledownfromright" text="缩小并从右边淡变" />
+			<option value="scaledownfromleft" text="缩小并从左边淡变" />
+			<option value="scaledownfromtop" text="缩小并从顶部淡变" />
+			<option value="scaledownfrombottom" text="缩小并从底部淡变" />
+		        <option value="zoomout" text="缩小" />
+			<option value="zoomin" text="放大" />
+			<option value="slotzoom-horizontal" text="水平缩放槽" />
+			<option value="slotzoom-vertical" text="垂直缩放槽" />
+			<option value="curtain-1" text="从左帘幕" />
+			<option value="curtain-2" text="从右帘幕" />
+			<option value="curtain-3" text="从中帘幕" />
+			<option value="3dcurtain-horizontal" text="3D水平帘幕" />
+			<option value="3dcurtain-vertical" text="3D垂直帘幕" />
+			<option value="cube" text="垂直魔方" />
+			<option value="cube-horizontal" text="水平魔方" />
+			<option value="incube" text="垂直魔方中" />
+			<option value="incube-horizontal" text="水平魔方中" />
+			<option value="turnoff" text="水平关闭" />
+			<option value="turnoff-vertical" text="垂直关闭" />
+			<option value="papercut" text="剪纸" />
+			<option value="flyin" text="飞入" />
+		</field>
+		<field name="reset_transition_duration" type="text" default="0" datatype="number" label="重置转场时间" description="重置所有的转场时间到选择的数值(默认:300, 最小: 100 最大 2000, 如果 0, 不会改变)" unit="ms" />
+		<field name="reset_slide_button" type="button" class="button-primary revblue" default="在所有幻灯片上执行设置" />
+	</fieldset>
+	<fieldset name="troubleshooting" label="Troubleshooting" icon="eg-icon-medkit">
+		<field name="jquery_noconflict" type="list" default="on" label="JQuery No Conflict Mode" description="Turns on / off jquery noconflict mode. You can play with this option when you have some javascript conflicts.">
+			<option value="on" text="启用" />
+			<option value="off" text="关闭" />
+		</field>
+		<field name="js_to_body" type="radio" default="false" label="Put JS Includes To Body" description="Putting the js to body (in addition to head) is good for fixing some javascript conflicts of type: TypeError: tpj('#rev_slider_1_1').show().revolution is not a function">
+			<option value="true" text="True" />
+			<option value="false" text="False" />
+		</field>
+		<field name="output_type" type="list" default="none" label="Output Filters Protection" description="Activate a protection against wordpress output filters that adds html blocks to the shortcode output like P and BR">
+			<option value="none" text="None" />
+			<option value="compress" text="By Compressing Output" />
+			<option value="echo" text="By Echo Output" />
+		</field>
+	</fieldset>
+	<fieldset name="google_fonts" label="谷歌字体设置 (提取)" icon="eg-icon-font">
+		<field name="text_google_deprecated" type="statictext" label=" 这个菜单点在V5.0提取了. 请使用谷歌字体菜单" />
+		<field name="load_googlefont" type="radio" default="false" label="加载谷歌字体" description="是/否加载谷歌字体">
+			<option value="true" text="Yes" />
+			<option value="false" text="No" />
+		</field>
+		<field name="text_google_font" type="statictext" label="谷歌字体加载:" />
+		<field name="google_font" type="multitext" class="text-sidebar-long-double" default="&lt;link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'&gt;" />
+		<field name="text_google_font" type="statictext" label="&lt;a href=&quot;javascript:void(0);&quot; data-name=&quot;google_font&quot; class=&quot;multiple_text_add&quot; &gt;&lt;div class='addnewicon reviconwithhover'&gt;&lt;i class='revicon-list-add'&gt;&lt;/i&gt;Add New&lt;/div&gt;&lt;div class='clear'&gt;&lt;/div&gt;&lt;/a&gt;" />
+		<field name="text_google" type="statictext" label="To add more google fonts please read &lt;a target=&quot;_blank&quot; href=&quot;http://codecanyon.net/item/slider-revolution-responsive-wordpress-plugin/2751380/faqs/15268&quot;&gt; this tutorial &lt;/a&gt; " />
+	</fieldset>
+	
+</fields>

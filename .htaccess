@@ -1,0 +1,13 @@
+# 本规则由华夏名网(www.sudu.cn)主机控制面板提供
+# sudu_rule @ wordpress
+
+RewriteEngine On
+
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [NC,L]
+# BEGIN WordPress
+
+# END WordPress

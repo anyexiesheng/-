@@ -1,0 +1,17 @@
+.idea
+node_modules
+.DS_Store
+*.swp
+dist
+release
+*.swp
+node_modules
+framework/admin/assets/config.codekit
+stylesheet/less/config.codekit
+/js/min/scripts-ck.js
+/js/tmp/
+ja/scripts.js
+stylesheet/css/styles.css
+stylesheet/css/styles.min.css
+stylesheet/css/theme-styles.min-blessed1.css
+stylesheet/css/theme-styles.min.css
